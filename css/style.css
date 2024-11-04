@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, rgba(232, 245, 233, 0.6), rgba(165, 214, 167, 0.6));
+    background-size: 200% 200%;
+    animation: gradientBackground 10s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+#header {
+    margin-bottom: 20px;
+}
+
+#field {
+    position: relative;
+    border-spacing: 5px;
+    background-color: #a5d6a7;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#field td {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #2e7d32;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #c8e6c9;
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#field td:hover {
+    background-color: #81c784;
+    transform: scale(1.05);
+}
+
+#start-button {
+    background-image: linear-gradient(120deg, #8e9e95, #3b7051);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-button:hover {
+    background-image: linear-gradient(120deg, #3b7051, #8e9e95);
+    transform: scale(1.05);
+}
+
+h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 50px;
+}
+
+.gradient {
+    background-image: linear-gradient(120deg, #8e9e95, #3b7051);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+img.cross {
+    filter: hue-rotate(110deg) brightness(0.7);
+}
+
+img.zero {
+    filter: hue-rotate(60deg) brightness(1.2);
+}
+
+.line-container {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.winning-line {
+    position: absolute;
+    height: 4px;
+    background-color: #ffeb3b;
+    transform-origin: 0 50%;
+    border-radius: 2px;
+    animation: drawLine 1s linear forwards, glow 1s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px 10px #ffeb3b;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes drawLine {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px 10px #ffeb3b;
+    }
+
+    to {
+        box-shadow: 0 0 40px 20px #ffeb3b;
+    }
+}
+
+@media (max-width: 768px) {
+    #field td {
+        width: 100px;
+        height: 100px;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    #start-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #field td {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    #start-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
